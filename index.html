@@ -4731,7 +4731,7 @@ function showToast(msg,type='',dur=5000){
 // GLB loading removed — character uses built-in fallback
 
 // Physics — tuned for snappier but not twitchy feel
-const GRAVITY=-30,JUMP1=11.8,JUMP2=9.5,JUMP3=8.2,RUN_SPEED=8.5,AIR_CTRL=.14,FRICTION=20,AIR_DRAG=1.0,PW=.45;
+const GRAVITY=-30,JUMP1=11.8,JUMP2=9.5,JUMP3=8.2,RUN_SPEED=8.8,AIR_CTRL=.14,FRICTION=20,AIR_DRAG=1.0,PW=.45;
 // V19.0.0 — per-character speed trim. RUN_SPEED is the shared base for the
 // platformer rig; these two multiply it so DRDD and Dipe Genie can be nudged
 // independently without touching the base (which also feeds sprint, and which
@@ -5178,9 +5178,9 @@ var sprintActive=false;
 var sprintTimer=0;
 var sprintCooldown=0;
 var sprintFatigue=false; // 85% speed penalty after sprint
-const SPRINT_DURATION=3.0;
+const SPRINT_DURATION=2.5;
 const SPRINT_COOLDOWN=5.0;
-const SPRINT_MULT=1.8;
+const SPRINT_MULT=1.7;
 
 function activateSprint(){
   if(!sprintUnlocked||sprintActive||sprintCooldown>0||genieActive||player.isDead) return;
@@ -15073,7 +15073,7 @@ function buildFroggerLevel(){
     var startX=(dir>0?-ROADX-3:ROADX+3);
     grp.position.set(startX, isKak?0:0.6, g.centerZ); _frogTrack(grp);
     var dmg=isKak?((road+1)/2):(road/2);             // 1,2,3
-    var vSpeed=(isKak?3.0:3.6) + road*0.6;           // higher floor + ramps each road (notched down)
+    var vSpeed=(isKak?2.7:3.3) + road*0.5;           // higher floor + ramps each road (notched down)
     // V16.2.0: null unless the .glb loaded with clips — see _frogUpdateVillain
     var _vanim=(window.Assets&&Assets.animator)
       ? Assets.animator(grp, isKak?'enemyKakapooFrog':'enemyPootooFrog') : null;
